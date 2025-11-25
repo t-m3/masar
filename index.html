@@ -1092,6 +1092,27 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* أنماط جديدة لعرض عدد المشاهدات */
+        .view-count {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .view-count i {
+            color: var(--primary);
+        }
+        
+        .test-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        
         /* تحسينات للشاشات الصغيرة جدًا */
         @media (max-width: 480px) {
             .container {
@@ -1216,6 +1237,10 @@
             
             .whatsapp-btn {
                 width: auto;
+            }
+            
+            .test-info {
+                align-items: flex-start;
             }
         }
         
@@ -1571,8 +1596,14 @@
                                 <div class="dropdown-content" id="tests-grade10">
                                     <div class="test-item">
                                         <i class="fas fa-file-pdf test-icon"></i>
-                                        <span class="test-title">ملف إختبارات سابقة</span>
-                                        <a href="https://drive.google.com/file/d/1pld86jAnhyM0BsEsQ2VmGcdBr2isSjyV/view?usp=drive_link" class="download-btn" target="_blank">
+                                        <div class="test-info">
+                                            <span class="test-title">ملف إختبارات سابقة</span>
+                                            <div class="view-count">
+                                                <i class="fas fa-eye"></i>
+                                                <span id="testViewCount">0</span> مشاهدة
+                                            </div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1pld86jAnhyM0BsEsQ2VmGcdBr2isSjyV/view?usp=drive_link" class="download-btn" target="_blank" onclick="incrementViewCount()">
                                             <i class="fas fa-external-link-alt"></i> فتح الملف
                                         </a>
                                     </div>
@@ -1640,12 +1671,32 @@
                 section.classList.remove('collapsed');
             });
             
+            // تحميل عدد المشاهدات من localStorage
+            loadViewCount();
+            
             // محاكاة تحميل الصفحة
             showLoading();
             setTimeout(() => {
                 hideLoading();
             }, 1000);
         });
+
+        // وظيفة تحميل عدد المشاهدات من localStorage
+        function loadViewCount() {
+            const viewCount = localStorage.getItem('testViewCount') || 0;
+            document.getElementById('testViewCount').textContent = viewCount;
+        }
+
+        // وظيفة زيادة عدد المشاهدات
+        function incrementViewCount() {
+            let viewCount = parseInt(localStorage.getItem('testViewCount') || 0);
+            viewCount++;
+            localStorage.setItem('testViewCount', viewCount);
+            document.getElementById('testViewCount').textContent = viewCount;
+            
+            // إظهار رسالة تأكيد
+            showToast('تم فتح ملف الاختبارات السابقة', 'success');
+        }
 
         // وظيفة تبديل فتح وإغلاق الأقسام
         function toggleSection(sectionId) {
