@@ -29,6 +29,10 @@
             font-family: 'Tajawal', sans-serif;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
             color: var(--dark);
@@ -40,13 +44,100 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
+        }
+        
+        /* شريط التحميل العلوي */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 9999;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+        
+        /* زر العودة للأعلى */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+            border: none;
+            font-size: 1.2rem;
+        }
+        
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        /* البحث السريع */
+        .quick-search {
+            position: relative;
+            margin: 20px 0;
+            max-width: 500px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: none;
+            border-radius: 50px;
+            background: white;
+            box-shadow: var(--shadow);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 1.2rem;
         }
         
         header {
             text-align: center;
-            padding: 80px 0 70px 0;
-            margin-bottom: 40px;
+            padding: 40px 0 30px 0;
+            margin-bottom: 30px;
             border-radius: 20px;
             position: relative;
             overflow: hidden;
@@ -58,7 +149,7 @@
             background-position: center;
             background-blend-mode: overlay;
             color: white;
-            min-height: 400px;
+            min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -67,7 +158,7 @@
         .header-image {
             position: absolute;
             top: 0;
-            left: 0;
+            right: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -78,7 +169,7 @@
         .math-background {
             position: absolute;
             top: 0;
-            left: 0;
+            right: 0;
             width: 100%;
             height: 100%;
             opacity: 0.1;
@@ -106,25 +197,26 @@
         .header-content {
             position: relative;
             z-index: 2;
-            padding: 30px;
+            padding: 20px;
             background-color: rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.18);
-            max-width: 800px;
+            max-width: 90%;
+            margin: 0 auto;
         }
         
         .year-decoration {
             font-family: 'El Messiri', sans-serif;
-            font-size: 3.2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: #ffd700;
             margin-bottom: 15px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
             position: relative;
             display: inline-block;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
         .year-decoration::before,
@@ -132,8 +224,8 @@
             content: "";
             position: absolute;
             top: 50%;
-            width: 60px;
-            height: 4px;
+            width: 40px;
+            height: 3px;
             background: linear-gradient(90deg, transparent, #ffd700, transparent);
             border-radius: 2px;
         }
@@ -148,30 +240,31 @@
         
         .year-decoration .math-icon {
             display: inline-block;
-            margin: 0 12px;
-            font-size: 2.4rem;
+            margin: 0 8px;
+            font-size: 1.8rem;
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
+            50% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
         
         h1 {
-            font-size: 4.5rem;
-            margin-bottom: 20px;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
             font-family: 'El Messiri', sans-serif;
             font-weight: 800;
             color: #fff;
             letter-spacing: 1px;
+            line-height: 1.2;
         }
         
         .subtitle {
-            font-size: 1.7rem;
-            margin-bottom: 25px;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
             color: #fff;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
             font-family: 'Tajawal', sans-serif;
@@ -181,9 +274,9 @@
         /* إضافة أنماط معلومات المعلم */
         .teacher-info {
             background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
+            padding: 12px;
             border-radius: 12px;
-            margin-top: 20px;
+            margin-top: 15px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -191,7 +284,7 @@
         
         .teacher-name {
             font-family: 'El Messiri', sans-serif;
-            font-size: 1.3rem; /* تم تصغير الحجم */
+            font-size: 1.1rem;
             font-weight: 600;
             color: #fff;
             margin-bottom: 5px;
@@ -203,12 +296,12 @@
         
         .teacher-name i {
             color: #ffd700;
-            font-size: 1.2rem; /* تم تصغير حجم الأيقونة */
+            font-size: 1rem;
         }
         
         .teacher-position {
             font-family: 'Tajawal', sans-serif;
-            font-size: 1rem; /* تم تصغير الحجم */
+            font-size: 0.9rem;
             color: #e0e0e0;
             text-align: center;
         }
@@ -218,8 +311,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 40px 0;
-            padding: 30px 20px;
+            margin: 30px 0;
+            padding: 20px 15px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
             border-radius: 20px;
             box-shadow: var(--shadow);
@@ -228,62 +321,47 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            color: inherit;
         }
 
         .exam-schedule-icon::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            right: 0;
             width: 100%;
             height: 5px;
             background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
         }
 
         .exam-schedule-icon:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .icon-circle {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
             position: relative;
             overflow: hidden;
             transition: var(--transition);
-            cursor: pointer;
         }
 
         .exam-schedule-icon:hover .icon-circle {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.4);
-        }
-
-        .icon-circle::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .exam-schedule-icon:hover .icon-circle::before {
-            opacity: 1;
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 12px 25px rgba(67, 97, 238, 0.4);
         }
 
         .icon-circle i {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: white;
             z-index: 2;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -291,7 +369,7 @@
 
         .icon-title {
             font-family: 'El Messiri', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--dark);
             text-align: center;
@@ -302,17 +380,17 @@
 
         .icon-subtitle {
             font-family: 'Tajawal', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #666;
             text-align: center;
-            max-width: 600px;
+            max-width: 100%;
         }
         
         .main-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
         }
         
         .card {
@@ -326,27 +404,29 @@
         }
         
         .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .card-header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 20px;
+            padding: 18px;
             text-align: center;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
             font-family: 'El Messiri', sans-serif;
+            border: none;
+            width: 100%;
         }
         
         .card-header i {
             transition: transform 0.3s ease;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         .card-body {
@@ -391,7 +471,6 @@
         .card-body a:hover {
             background: rgba(67, 97, 238, 0.1);
             padding-right: 15px;
-            transform: translateX(-5px);
         }
         
         .card-body a i {
@@ -400,42 +479,43 @@
         }
         
         .grade-section {
-            padding: 20px;
+            padding: 15px;
             border-radius: var(--radius);
-            margin-top: 25px;
+            margin-top: 20px;
             border-right: 5px solid;
             background: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .grade-section h3 {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-family: 'El Messiri', sans-serif;
             font-weight: 700;
         }
         
         .grade-section h3 i {
-            margin-left: 12px;
-            font-size: 1.4rem;
+            margin-left: 10px;
+            font-size: 1.2rem;
         }
         
         .book-list {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 15px;
             margin-top: 15px;
         }
         
         .book-item {
             background: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: var(--radius);
             display: flex;
+            flex-direction: column;
             align-items: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
@@ -444,13 +524,13 @@
         }
         
         .book-item:hover {
-            transform: translateX(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
         
         .book-icon {
-            margin-left: 20px;
-            font-size: 2rem;
+            margin: 0 0 15px 0;
+            font-size: 1.8rem;
             flex-shrink: 0;
             width: 60px;
             height: 60px;
@@ -463,12 +543,13 @@
         
         .book-info {
             flex-grow: 1;
+            width: 100%;
         }
         
         .book-title {
             font-weight: 700;
             color: var(--dark);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-align: center;
             margin-bottom: 10px;
             font-family: 'Tajawal', sans-serif;
@@ -478,19 +559,21 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 12px 20px;
             border-radius: 8px;
             cursor: pointer;
             transition: var(--transition);
             flex-shrink: 0;
-            margin-right: 10px;
+            margin-top: 10px;
             font-weight: 600;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
             font-size: 1rem;
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            width: 100%;
         }
         
         .download-btn:hover {
@@ -510,14 +593,15 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         
         .exercise-item {
             background: white;
-            padding: 18px;
+            padding: 15px;
             border-radius: var(--radius);
             display: flex;
+            flex-direction: column;
             align-items: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
@@ -526,14 +610,14 @@
         }
         
         .exercise-item:hover {
-            transform: translateX(-8px);
+            transform: translateX(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
         
         .exercise-icon {
             color: var(--accent);
-            margin-left: 15px;
-            font-size: 1.6rem;
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
             flex-shrink: 0;
             width: 50px;
             height: 50px;
@@ -546,28 +630,30 @@
         
         .exercise-info {
             flex-grow: 1;
+            width: 100%;
         }
         
         .exercise-title {
             font-weight: 600;
             color: var(--dark);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-family: 'Tajawal', sans-serif;
+            text-align: center;
         }
         
         .platform-description {
             background: rgba(248, 249, 250, 0.7);
-            padding: 20px;
+            padding: 15px;
             border-radius: var(--radius);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-right: 4px solid var(--primary);
             backdrop-filter: blur(5px);
         }
         
         .platform-description h4 {
             color: var(--dark);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             font-family: 'El Messiri', sans-serif;
@@ -575,21 +661,21 @@
         }
         
         .platform-description h4 i {
-            margin-left: 12px;
+            margin-left: 10px;
             color: var(--primary);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
         
         .platform-description p {
             color: #555;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            line-height: 1.7;
+            font-size: 1rem;
             font-family: 'Tajawal', sans-serif;
         }
         
         .info-section {
-            margin-bottom: 25px;
-            padding: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
             background: rgba(248, 249, 250, 0.7);
             border-radius: var(--radius);
             border-right: 4px solid var(--primary);
@@ -598,7 +684,7 @@
         
         .info-section h4 {
             color: var(--dark);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             font-family: 'El Messiri', sans-serif;
@@ -606,53 +692,55 @@
         }
         
         .info-section h4 i {
-            margin-left: 12px;
+            margin-left: 10px;
             color: var(--primary);
         }
         
         .whatsapp-contact {
             background: white;
-            padding: 25px;
+            padding: 20px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            margin-top: 25px;
+            margin-top: 20px;
             text-align: center;
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .whatsapp-contact h4 {
             color: var(--dark);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'El Messiri', sans-serif;
             font-weight: 700;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
         
         .whatsapp-contact h4 i {
-            margin-left: 12px;
+            margin-left: 10px;
             color: #25D366;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
         
         .whatsapp-btn {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 14px 25px;
             border-radius: 10px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             text-decoration: none;
-            margin-top: 15px;
+            margin-top: 10px;
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            width: 100%;
         }
         
         .whatsapp-btn:hover {
@@ -667,8 +755,8 @@
             background: var(--dark);
             color: white;
             border-radius: var(--radius);
-            margin-top: 40px;
-            font-size: 1rem;
+            margin-top: 30px;
+            font-size: 0.9rem;
             font-family: 'Tajawal', sans-serif;
         }
         
@@ -681,7 +769,7 @@
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            right: 0;
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
@@ -699,11 +787,11 @@
         
         .toast {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             background: var(--success);
             color: white;
-            padding: 18px 28px;
+            padding: 15px 20px;
             border-radius: 10px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             transform: translateY(100px);
@@ -711,11 +799,23 @@
             transition: var(--transition);
             z-index: 1000;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 90%;
         }
         
         .toast.show {
             transform: translateY(0);
             opacity: 1;
+        }
+        
+        .toast.error {
+            background: var(--danger);
+        }
+        
+        .toast.warning {
+            background: var(--warning);
         }
         
         /* أنماط القوائم المنسدلة الجديدة */
@@ -789,24 +889,26 @@
         
         .empty-message {
             text-align: center;
-            padding: 30px;
+            padding: 25px;
             color: #6c757d;
             font-style: italic;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         /* أنماط مخصصة للدرس الأول مع الإطار والأيقونة */
         .lesson-item {
             background: white;
-            padding: 15px 20px;
+            padding: 15px;
             border-radius: 10px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             margin-bottom: 15px;
             border: 2px solid var(--primary);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
             cursor: pointer;
+            text-align: center;
         }
         
         .lesson-item:hover {
@@ -817,7 +919,7 @@
         
         .watch-icon {
             color: var(--primary);
-            margin-left: 15px;
+            margin: 0 0 10px 0;
             font-size: 1.4rem;
         }
         
@@ -826,7 +928,7 @@
             font-weight: 600;
             color: var(--dark);
             font-family: 'Tajawal', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         /* نافذة الفيديو المنبثقة */
@@ -834,7 +936,7 @@
             display: none;
             position: fixed;
             top: 0;
-            left: 0;
+            right: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.85);
@@ -842,6 +944,7 @@
             align-items: center;
             justify-content: center;
             backdrop-filter: blur(5px);
+            padding: 15px;
         }
         
         .video-modal.show {
@@ -851,7 +954,7 @@
         .modal-content {
             background: white;
             border-radius: 20px;
-            width: 90%;
+            width: 100%;
             max-width: 900px;
             overflow: hidden;
             position: relative;
@@ -861,7 +964,7 @@
         .modal-header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 20px 25px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -870,7 +973,7 @@
         
         .modal-header h3 {
             margin: 0;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
         }
         
@@ -878,9 +981,10 @@
             background: none;
             border: none;
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
             transition: var(--transition);
+            padding: 5px;
         }
         
         .close-btn:hover {
@@ -897,7 +1001,7 @@
         .video-container iframe {
             position: absolute;
             top: 0;
-            left: 0;
+            right: 0;
             width: 100%;
             height: 100%;
             border: none;
@@ -906,14 +1010,16 @@
         /* أنماط جديدة للاختبارات */
         .test-item {
             background: white;
-            padding: 15px 20px;
+            padding: 15px;
             border-radius: 10px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             margin-bottom: 15px;
             border: 2px solid var(--primary);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
+            text-align: center;
         }
         
         .test-item:hover {
@@ -924,7 +1030,7 @@
         
         .test-icon {
             color: var(--primary);
-            margin-left: 15px;
+            margin: 0 0 10px 0;
             font-size: 1.4rem;
         }
         
@@ -933,101 +1039,259 @@
             font-weight: 600;
             color: var(--dark);
             font-family: 'Tajawal', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            margin-bottom: 10px;
         }
         
-        /* أنماط الاستجابة للشاشات الصغيرة */
-        @media (max-width: 768px) {
+        /* نافذة التحميل */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .loading-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* تبويبات التنقل */
+        .tab-container {
+            margin: 20px 0;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            background: white;
+            border-radius: var(--radius);
+            padding: 5px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 12px 10px;
+            text-align: center;
+            background: transparent;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            min-width: 100px;
+        }
+        
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* تحسينات للشاشات الصغيرة جدًا */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
             h1 {
-                font-size: 3.2rem;
+                font-size: 2.2rem;
             }
             
             .year-decoration {
-                font-size: 2.4rem;
-            }
-            
-            .year-decoration .math-icon {
                 font-size: 1.8rem;
             }
             
-            .subtitle {
+            .year-decoration .math-icon {
                 font-size: 1.4rem;
             }
             
-            .teacher-name {
+            .subtitle {
                 font-size: 1.1rem;
             }
             
-            .teacher-position {
-                font-size: 0.9rem;
-            }
-            
-            .icon-circle {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .icon-circle i {
-                font-size: 2.5rem;
-            }
-            
-            .icon-title {
-                font-size: 1.5rem;
-            }
-            
-            .icon-subtitle {
+            .teacher-name {
                 font-size: 1rem;
             }
             
-            .main-content {
-                grid-template-columns: 1fr;
+            .teacher-position {
+                font-size: 0.8rem;
             }
             
-            .book-item {
-                flex-direction: column;
-                text-align: center;
+            .icon-circle {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .icon-circle i {
+                font-size: 2rem;
+            }
+            
+            .icon-title {
+                font-size: 1.3rem;
+            }
+            
+            .icon-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .card-header {
                 padding: 15px;
+                font-size: 1.1rem;
             }
             
-            .book-icon {
-                margin: 0 0 15px 0;
+            .search-input {
+                padding: 12px 45px 12px 15px;
+                font-size: 0.9rem;
             }
             
-            .download-btn {
-                margin: 15px 0 0 0;
-                width: 100%;
-                justify-content: center;
-                padding: 10px 20px;
+            .search-icon {
+                left: 15px;
+                font-size: 1.1rem;
             }
             
-            .exercise-item {
-                flex-direction: column;
-                text-align: center;
-                padding: 15px;
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 15px;
+                left: 15px;
+                font-size: 1.1rem;
             }
             
-            .exercise-icon {
-                margin: 0 0 10px 0;
+            .modal-header h3 {
+                font-size: 1.1rem;
+            }
+            
+            .toast {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* تحسينات للشاشات المتوسطة والكبيرة */
+        @media (min-width: 768px) {
+            .container {
+                padding: 20px;
             }
             
             header {
-                min-height: 350px;
                 padding: 60px 0 50px 0;
+                min-height: 400px;
             }
             
-            .modal-content {
-                width: 95%;
+            h1 {
+                font-size: 3.5rem;
             }
             
-            .test-item {
-                flex-direction: column;
-                text-align: center;
-                padding: 15px;
+            .year-decoration {
+                font-size: 2.8rem;
+            }
+            
+            .year-decoration .math-icon {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .main-content {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 30px;
+            }
+            
+            .book-item, .exercise-item, .test-item, .lesson-item {
+                flex-direction: row;
+                text-align: right;
+            }
+            
+            .book-icon, .exercise-icon, .watch-icon, .test-icon {
+                margin-left: 15px;
+                margin-bottom: 0;
+            }
+            
+            .download-btn {
+                width: auto;
+                margin-top: 0;
+                margin-right: 10px;
+            }
+            
+            .book-title, .exercise-title, .lesson-title, .test-title {
+                text-align: right;
+            }
+            
+            .whatsapp-btn {
+                width: auto;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 4rem;
+            }
+            
+            .year-decoration {
+                font-size: 3.2rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- شريط التحميل العلوي -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- نافذة التحميل -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- زر العودة للأعلى -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
     <div class="container">
         <header>
             <!-- صورة بديلة كعنصر img -->
@@ -1054,6 +1318,12 @@
             </div>
         </header>
         
+        <!-- شريط البحث السريع -->
+        <div class="quick-search">
+            <input type="text" class="search-input" id="searchInput" placeholder="ابحث عن درس أو تمرين...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        
         <!-- إضافة الأيقونة الدائرية لجدول الاختبارات -->
         <a href="https://top4top.io/downloadf-3612kjnfm1-pdf.html" target="_blank" class="exam-schedule-icon">
             <div class="icon-circle">
@@ -1063,277 +1333,361 @@
             <p class="icon-subtitle">انقر هنا لفتح جدول الاختبارات النهائية للفصل الدراسي الأول</p>
         </a>
         
-        <div class="main-content">
-            <div class="card">
-                <div class="card-header" onclick="toggleSection('aboutUs')">
-                    <span>من نحن</span>
-                    <i class="fas fa-chevron-up"></i>
-                </div>
-                <div class="card-body" id="aboutUs">
-                    <div class="platform-description">
-                        <h4><i class="fas fa-question-circle"></i> ماهي منصة مسار؟</h4>
-                        <p>هي منصة تعليمية متخصصة في مادة الرياضيات، تهدف إلى تقديم محتوى تعليمي متميز. نقدم تمارين إضافية مع حلول مفصلة عبر مقاطع فيديو لتسهيل فهم الدروس وتحسين الأداء الدراسي.</p>
-                    </div>
-                    
-                    <div class="info-section">
-                        <h4><i class="fas fa-bullhorn"></i> الرسالة</h4>
-                        <p>تمكين الطلاب من إتقان الرياضيات عبر تقديم محتوى تعليمي متميز يواكب أحدث الطرق التعليمية، ويساهم في تطوير مهارات التفكير المنطقي </p>
-                    </div>
-                    
-                    <div class="info-section">
-                        <h4><i class="fas fa-eye"></i> الرؤية</h4>
-                        <p>أن نكون المنصة الرائدة في تعليم الرياضيات عربياً، وأن نساهم في بناء جيل متمكن من العلوم الرياضية قادر على الابتكار والإبداع.</p>
-                    </div>
-                    
-                    <div class="info-section">
-                        <h4><i class="fas fa-comments"></i> تواصل معنا</h4>
-                        <p>نرحب بأسئلتكم واستفساراتكم واقتراحاتكم. يمكنكم التواصل معنا مباشرة عبر الواتساب:</p>
-                    </div>
-                    
-                    <div class="whatsapp-contact">
-                        <h4><i class="fab fa-whatsapp"></i> تواصل عبر الواتساب</h4>
-                        <p>للاستفسارات أو تقديم المقترحات، يمكنك التواصل معنا مباشرة عبر الواتساب:</p>
-                        <a href="https://wa.me/96895573386" class="whatsapp-btn" target="_blank">
-                            <i class="fab fa-whatsapp"></i> التواصل عبر الواتساب
-                        </a>
-                    </div>
-                </div>
+        <!-- تبويبات التنقل -->
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="about">من نحن</button>
+                <button class="tab-btn" data-tab="library">المكتبة</button>
+                <button class="tab-btn" data-tab="exercises">التمارين</button>
+                <button class="tab-btn" data-tab="tests">الاختبارات</button>
             </div>
             
-            <div class="card">
-                <div class="card-header" onclick="toggleSection('mathLibrary')">
-                    <span>مكتبة الرياضيات</span>
-                    <i class="fas fa-chevron-up"></i>
-                </div>
-                <div class="card-body" id="mathLibrary">
-                    <!-- الصف العاشر -->
-                    <div class="grade-section" style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.7), rgba(187, 222, 251, 0.7)); border-right-color: #2196f3;">
-                        <h3 style="color: #1565c0;"><i class="fas fa-graduation-cap"></i> كتب الصف العاشر</h3>
-                        <div class="book-list">
-                            <div class="book-item" style="border-right-color: #4361ee;">
-                                <div class="book-container">
-                                    <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="book-info">
-                                        <div class="book-title">كتاب الطالب - الرياضيات للصف العاشر</div>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/1rx30Q2dCs3FPbJP1h8ZEsBeqpb3Jkyro/view?usp=drive_link" class="download-btn">
-                                        <i class="fas fa-download"></i> تحميل
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="book-item" style="border-right-color: #4361ee;">
-                                <div class="book-container">
-                                    <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
-                                        <i class="fas fa-tasks"></i>
-                                    </div>
-                                    <div class="book-info">
-                                        <div class="book-title">كتاب النشاط</div>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/17ci5vcLJ7TZ-YXmJgiBdW5-bt2VQISb0/view?usp=drive_link" class="download-btn">
-                                        <i class="fas fa-download"></i> تحميل
-                                    </a>
-                                </div>
-                            </div>
+            <div class="tab-content active" id="about-tab">
+                <div class="card">
+                    <button class="card-header" onclick="toggleSection('aboutUs')">
+                        <span>من نحن</span>
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="card-body" id="aboutUs">
+                        <div class="platform-description">
+                            <h4><i class="fas fa-question-circle"></i> ماهي منصة مسار؟</h4>
+                            <p>هي منصة تعليمية متخصصة في مادة الرياضيات، تهدف إلى تقديم محتوى تعليمي متميز. نقدم تمارين إضافية مع حلول مفصلة عبر مقاطع فيديو لتسهيل فهم الدروس وتحسين الأداء الدراسي.</p>
                         </div>
-                    </div>
-                    
-                    <!-- الصف التاسع -->
-                    <div class="grade-section" style="background: linear-gradient(135deg, rgba(232, 245, 233, 0.7), rgba(200, 230, 201, 0.7)); border-right-color: #4caf50; margin-top: 25px;">
-                        <h3 style="color: #2e7d32;"><i class="fas fa-graduation-cap"></i> كتب الصف التاسع</h3>
-                        <div class="book-list">
-                            <div class="book-item" style="border-right-color: #4caf50;">
-                                <div class="book-container">
-                                    <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="book-info">
-                                       <div class="book-title">كتاب الطالب - الرياضيات للصف التاسع</div>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/1RjU3SNCLrSwY1t-Ga5ZmyDXqdQvZSW3_/view?usp=drive_link" class="download-btn" id="grade9-student-book">
-                                        <i class="fas fa-download"></i> تحميل
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="book-item" style="border-right-color: #4caf50;">
-                                <div class="book-container">
-                                    <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
-                                        <i class="fas fa-tasks"></i>
-                                    </div>
-                                    <div class="book-info">
-                                         <div class="book-title">كتاب النشاط</div>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/1u5mh9VWzKI9n6uu3xOpdfQPv10gnysRR/view?usp=drive_link" class="download-btn" id="grade9-activity-book">
-                                        <i class="fas fa-download"></i> تحميل
-                                    </a>
-                                </div>
-                            </div>
+                        
+                        <div class="info-section">
+                            <h4><i class="fas fa-bullhorn"></i> الرسالة</h4>
+                            <p>تمكين الطلاب من إتقان الرياضيات عبر تقديم محتوى تعليمي متميز يواكب أحدث الطرق التعليمية، ويساهم في تطوير مهارات التفكير المنطقي </p>
                         </div>
-                    </div>
-                    
-                    <!-- الصف الثامن -->
-                    <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 243, 224, 0.7), rgba(255, 204, 128, 0.7)); border-right-color: #ff9800; margin-top: 25px;">
-                        <h3 style="color: #ef6c00;"><i class="fas fa-graduation-cap"></i> كتب الصف الثامن</h3>
-                        <div class="book-list">
-                            <div class="book-item" style="border-right-color: #ff9800;">
-                                <div class="book-container">
-                                    <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="book-info">
-                                        <div class="book-title">كتاب الطالب - الرياضيات للصف الثامن</div>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/1mbByx2gzk911L5oyrzlMIE14XwkSx_nL/view?usp=drive_link" class="download-btn" id="grade8-student-book">
-                                        <i class="fas fa-download"></i> تحميل
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="book-item" style="border-right-color: #ff9800;">
-                                <div class="book-container">
-                                    <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
-                                        <i class="fas fa-tasks"></i>
-                                    </div>
-                                    <div class="book-info">
-                                        <div class="book-title">كتاب النشاط</div>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/1Wnzxwi1yJvAWIF1eaRhapeSwrZuSUNK5/view?usp=drive_link" class="download-btn" id="grade8-activity-book">
-                                        <i class="fas fa-download"></i> تحميل
-                                    </a>
-                                </div>
-                            </div>
+                        
+                        <div class="info-section">
+                            <h4><i class="fas fa-eye"></i> الرؤية</h4>
+                            <p>أن نكون المنصة الرائدة في تعليم الرياضيات عربياً، وأن نساهم في بناء جيل متمكن من العلوم الرياضية قادر على الابتكار والإبداع.</p>
                         </div>
-                    </div>
-                    
-                    <!-- الصف السابع -->
-                    <div class="grade-section" style="background: linear-gradient(135deg, rgba(252, 228, 236, 0.7), rgba(248, 187, 208, 0.7)); border-right-color: #e91e63; margin-top: 25px;">
-                        <h3 style="color: #c2185b;"><i class="fas fa-graduation-cap"></i> كتب الصف السابع</h3>
-                        <div class="book-list">
-                            <div class="book-item" style="border-right-color: #e91e63;">
-                                <div class="book-container">
-                                    <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="book-info">
-                                        <div class="book-title">كتاب الطالب - الرياضيات للصف السابع</div>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/1ceaiU5s7s5iAP_WE-AB4uHMJ8s8P5a2j/view?usp=drive_link" class="download-btn" id="grade7-student-book">
-                                        <i class="fas fa-download"></i> تحميل
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="book-item" style="border-right-color: #e91e63;">
-                                <div class="book-container">
-                                    <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
-                                        <i class="fas fa-tasks"></i>
-                                    </div>
-                                    <div class="book-info">
-                                        <div class="book-title">كتاب النشاط</div>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/1WoR6Sv5bIX1qljxCpU6QNT0xM5BKOBUE/view?usp=drive_link" class="download-btn" id="grade7-activity-book">
-                                        <i class="fas fa-download"></i> تحميل
-                                    </a>
-                                </div>
-                            </div>
+                        
+                        <div class="info-section">
+                            <h4><i class="fas fa-comments"></i> تواصل معنا</h4>
+                            <p>نرحب بأسئلتكم واستفساراتكم واقتراحاتكم. يمكنكم التواصل معنا مباشرة عبر الواتساب:</p>
+                        </div>
+                        
+                        <div class="whatsapp-contact">
+                            <h4><i class="fab fa-whatsapp"></i> تواصل عبر الواتساب</h4>
+                            <p>للاستفسارات أو تقديم المقترحات، يمكنك التواصل معنا مباشرة عبر الواتساب:</p>
+                            <a href="https://wa.me/96895573386" class="whatsapp-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> التواصل عبر الواتساب
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="card">
-                <div class="card-header" onclick="toggleSection('exercises')">
-                    <span>تمارين وأنشطة محلولة</span>
-                    <i class="fas fa-chevron-up"></i>
-                </div>
-                <div class="card-body" id="exercises">
-                    <div class="grade-section" style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.7), rgba(187, 222, 251, 0.7)); border-right-color: #2196f3;">
-                        <h3 style="color: #1565c0;"><i class="fas fa-graduation-cap"></i> تمارين لجميع الصفوف</h3>
-                        <div class="dropdown">
-                            <div class="dropdown-header" onclick="toggleDropdown('grade10')">
-                                <span>تمارين الصف العاشر</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="dropdown-content" id="grade10">
-                                <!-- تمت إضافة الدرس الأول هنا مع الإطار والأيقونة -->
-                                <div class="lesson-item" onclick="openVideoModal('الدرس الأول 1-1 التمثيلات البيانية للتحويل', 'https://drive.google.com/file/d/1ZXjR28S1r32EmEGbYuzer3hgXR3AevWk/preview')">
-                                    <i class="fas fa-eye watch-icon"></i>
-                                    <span class="lesson-title">الدرس الأول 1-1 التمثيلات البيانية للتحويل</span>
+            <div class="tab-content" id="library-tab">
+                <div class="card">
+                    <button class="card-header" onclick="toggleSection('mathLibrary')">
+                        <span>مكتبة الرياضيات</span>
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="card-body" id="mathLibrary">
+                        <!-- الصف العاشر -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.7), rgba(187, 222, 251, 0.7)); border-right-color: #2196f3;">
+                            <h3 style="color: #1565c0;"><i class="fas fa-graduation-cap"></i> كتب الصف العاشر</h3>
+                            <div class="book-list">
+                                <div class="book-item" style="border-right-color: #4361ee;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب الطالب - الرياضيات للصف العاشر</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1rx30Q2dCs3FPbJP1h8ZEsBeqpb3Jkyro/view?usp=drive_link" class="download-btn">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
                                 </div>
-                                
-                                <!-- تمت إضافة الدرس الثاني هنا مع الإطار والأيقونة -->
-                                <div class="lesson-item" onclick="openVideoModal('الدرس الثاني 1-2 التمثيلات البيانية للدوال', 'https://d.top4top.io/m_36033wax81.mp4')">
-                                    <i class="fas fa-eye watch-icon"></i>
-                                    <span class="lesson-title">الدرس الثاني 1-2 التمثيلات البيانية للدوال</span>
-                                </div>
-                                
-                                <!-- باقي المحتوى الأصلي -->
-                                <div class="empty-message">
-                                    <i class="fas fa-folder-open" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
-                                    <p>لم يتم إضافة تمارين أخرى بعد</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- تمارين الصف التاسع -->
-                        <div class="dropdown">
-                            <div class="dropdown-header" onclick="toggleDropdown('grade9')">
-                                <span>تمارين الصف التاسع</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="dropdown-content" id="grade9">
-                                <div class="empty-message">
-                                    <i class="fas fa-folder-open" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
-                                    <p>لم يتم إضافة تمارين بعد</p>
+                                <div class="book-item" style="border-right-color: #4361ee;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب النشاط</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/17ci5vcLJ7TZ-YXmJgiBdW5-bt2VQISb0/view?usp=drive_link" class="download-btn">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- تمارين الصف الثامن -->
-                        <div class="dropdown">
-                            <div class="dropdown-header" onclick="toggleDropdown('grade8')">
-                                <span>تمارين الصف الثامن</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="dropdown-content" id="grade8">
-                                <div class="empty-message">
-                                    <i class="fas fa-folder-open" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
-                                    <p>لم يتم إضافة تمارين بعد</p>
+                        <!-- الصف التاسع -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(232, 245, 233, 0.7), rgba(200, 230, 201, 0.7)); border-right-color: #4caf50; margin-top: 25px;">
+                            <h3 style="color: #2e7d32;"><i class="fas fa-graduation-cap"></i> كتب الصف التاسع</h3>
+                            <div class="book-list">
+                                <div class="book-item" style="border-right-color: #4caf50;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="book-info">
+                                           <div class="book-title">كتاب الطالب - الرياضيات للصف التاسع</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1RjU3SNCLrSwY1t-Ga5ZmyDXqdQvZSW3_/view?usp=drive_link" class="download-btn" id="grade9-student-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="book-item" style="border-right-color: #4caf50;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                        <div class="book-info">
+                                             <div class="book-title">كتاب النشاط</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1u5mh9VWzKI9n6uu3xOpdfQPv10gnysRR/view?usp=drive_link" class="download-btn" id="grade9-activity-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- تمارين الصف السابع -->
-                        <div class="dropdown">
-                            <div class="dropdown-header" onclick="toggleDropdown('grade7')">
-                                <span>تمارين الصف السابع</span>
-                                <i class="fas fa-chevron-down"></i>
+                        <!-- الصف الثامن -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 243, 224, 0.7), rgba(255, 204, 128, 0.7)); border-right-color: #ff9800; margin-top: 25px;">
+                            <h3 style="color: #ef6c00;"><i class="fas fa-graduation-cap"></i> كتب الصف الثامن</h3>
+                            <div class="book-list">
+                                <div class="book-item" style="border-right-color: #ff9800;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب الطالب - الرياضيات للصف الثامن</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1mbByx2gzk911L5oyrzlMIE14XwkSx_nL/view?usp=drive_link" class="download-btn" id="grade8-student-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="book-item" style="border-right-color: #ff9800;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب النشاط</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1Wnzxwi1yJvAWIF1eaRhapeSwrZuSUNK5/view?usp=drive_link" class="download-btn" id="grade8-activity-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="dropdown-content" id="grade7">
-                                <div class="empty-message">
-                                    <i class="fas fa-folder-open" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
-                                    <p>لم يتم إضافة تمارين بعد</p>
+                        </div>
+                        
+                        <!-- الصف السابع -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(252, 228, 236, 0.7), rgba(248, 187, 208, 0.7)); border-right-color: #e91e63; margin-top: 25px;">
+                            <h3 style="color: #c2185b;"><i class="fas fa-graduation-cap"></i> كتب الصف السابع</h3>
+                            <div class="book-list">
+                                <div class="book-item" style="border-right-color: #e91e63;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب الطالب - الرياضيات للصف السابع</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1ceaiU5s7s5iAP_WE-AB4uHMJ8s8P5a2j/view?usp=drive_link" class="download-btn" id="grade7-student-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="book-item" style="border-right-color: #e91e63;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب النشاط</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1WoR6Sv5bIX1qljxCpU6QNT0xM5BKOBUE/view?usp=drive_link" class="download-btn" id="grade7-activity-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- القسم الجديد: اختبارات نهائية وتجريبية سابقة -->
-                    <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 248, 225, 0.7), rgba(255, 236, 179, 0.7)); border-right-color: #ffa000; margin-top: 35px;">
-                        <h3 style="color: #ff8f00;"><i class="fas fa-file-alt"></i> اختبارات نهائية وتجريبية سابقة</h3>
-                        
-                        <!-- اختبارات الصف العاشر فقط -->
-                        <div class="dropdown">
-                            <div class="dropdown-header" onclick="toggleDropdown('tests-grade10')">
-                                <span>اختبارات الصف العاشر</span>
-                                <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="exercises-tab">
+                <div class="card">
+                    <button class="card-header" onclick="toggleSection('exercises')">
+                        <span>تمارين وأنشطة محلولة</span>
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="card-body" id="exercises">
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.7), rgba(187, 222, 251, 0.7)); border-right-color: #2196f3;">
+                            <h3 style="color: #1565c0;"><i class="fas fa-graduation-cap"></i> تمارين لجميع الصفوف</h3>
+                            <div class="dropdown">
+                                <div class="dropdown-header" onclick="toggleDropdown('grade10')">
+                                    <span>تمارين الصف العاشر</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-content" id="grade10">
+                                    <!-- تمت إضافة الدرس الأول هنا مع الإطار والأيقونة -->
+                                    <div class="lesson-item" onclick="openVideoModal('الدرس الأول 1-1 التمثيلات البيانية للتحويل', 'https://drive.google.com/file/d/1ZXjR28S1r32EmEGbYuzer3hgXR3AevWk/preview')">
+                                        <i class="fas fa-eye watch-icon"></i>
+                                        <span class="lesson-title">الدرس الأول 1-1 التمثيلات البيانية للتحويل</span>
+                                    </div>
+                                    
+                                    <!-- تمت إضافة الدرس الثاني هنا مع الإطار والأيقونة -->
+                                    <div class="lesson-item" onclick="openVideoModal('الدرس الثاني 1-2 التمثيلات البيانية للدوال', 'https://d.top4top.io/m_36033wax81.mp4')">
+                                        <i class="fas fa-eye watch-icon"></i>
+                                        <span class="lesson-title">الدرس الثاني 1-2 التمثيلات البيانية للدوال</span>
+                                    </div>
+                                    
+                                    <!-- باقي المحتوى الأصلي -->
+                                    <div class="empty-message">
+                                        <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                                        <p>لم يتم إضافة تمارين أخرى بعد</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="dropdown-content" id="tests-grade10">
-                                <div class="test-item">
-                                    <i class="fas fa-file-pdf test-icon"></i>
-                                    <span class="test-title">ملف إختبارات سابقة</span>
-                                    <a href="https://drive.google.com/file/d/1pld86jAnhyM0BsEsQ2VmGcdBr2isSjyV/view?usp=drive_link" class="download-btn" target="_blank">
-                                        <i class="fas fa-external-link-alt"></i> فتح الملف
-                                    </a>
+                            
+                            <!-- تمارين الصف التاسع -->
+                            <div class="dropdown">
+                                <div class="dropdown-header" onclick="toggleDropdown('grade9')">
+                                    <span>تمارين الصف التاسع</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-content" id="grade9">
+                                    <div class="empty-message">
+                                        <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                                        <p>لم يتم إضافة تمارين بعد</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- تمارين الصف الثامن -->
+                            <div class="dropdown">
+                                <div class="dropdown-header" onclick="toggleDropdown('grade8')">
+                                    <span>تمارين الصف الثامن</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-content" id="grade8">
+                                    <div class="empty-message">
+                                        <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                                        <p>لم يتم إضافة تمارين بعد</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- تمارين الصف السابع -->
+                            <div class="dropdown">
+                                <div class="dropdown-header" onclick="toggleDropdown('grade7')">
+                                    <span>تمارين الصف السابع</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-content" id="grade7">
+                                    <div class="empty-message">
+                                        <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                                        <p>لم يتم إضافة تمارين بعد</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- تبويب الاختبارات الجديد -->
+            <div class="tab-content" id="tests-tab">
+                <div class="card">
+                    <button class="card-header" onclick="toggleSection('tests')">
+                        <span>اختبارات نهائية وتجريبية سابقة</span>
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="card-body" id="tests">
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 248, 225, 0.7), rgba(255, 236, 179, 0.7)); border-right-color: #ffa000;">
+                            <h3 style="color: #ff8f00;"><i class="fas fa-file-alt"></i> اختبارات نهائية وتجريبية سابقة</h3>
+                            
+                            <!-- اختبارات الصف العاشر -->
+                            <div class="dropdown">
+                                <div class="dropdown-header" onclick="toggleDropdown('tests-grade10')">
+                                    <span>اختبارات الصف العاشر</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-content" id="tests-grade10">
+                                    <div class="test-item">
+                                        <i class="fas fa-file-pdf test-icon"></i>
+                                        <span class="test-title">ملف إختبارات سابقة</span>
+                                        <a href="https://drive.google.com/file/d/1pld86jAnhyM0BsEsQ2VmGcdBr2isSjyV/view?usp=drive_link" class="download-btn" target="_blank">
+                                            <i class="fas fa-external-link-alt"></i> فتح الملف
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- اختبارات الصف التاسع -->
+                            <div class="dropdown">
+                                <div class="dropdown-header" onclick="toggleDropdown('tests-grade9')">
+                                    <span>اختبارات الصف التاسع</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-content" id="tests-grade9">
+                                    <div class="empty-message">
+                                        <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                                        <p>لم يتم إضافة اختبارات بعد</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- اختبارات الصف الثامن -->
+                            <div class="dropdown">
+                                <div class="dropdown-header" onclick="toggleDropdown('tests-grade8')">
+                                    <span>اختبارات الصف الثامن</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-content" id="tests-grade8">
+                                    <div class="empty-message">
+                                        <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                                        <p>لم يتم إضافة اختبارات بعد</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- اختبارات الصف السابع -->
+                            <div class="dropdown">
+                                <div class="dropdown-header" onclick="toggleDropdown('tests-grade7')">
+                                    <span>اختبارات الصف السابع</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-content" id="tests-grade7">
+                                    <div class="empty-message">
+                                        <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                                        <p>لم يتم إضافة اختبارات بعد</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- قسم إضافي للاختبارات التجريبية -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(232, 245, 233, 0.7), rgba(200, 230, 201, 0.7)); border-right-color: #4caf50; margin-top: 25px;">
+                            <h3 style="color: #2e7d32;"><i class="fas fa-clipboard-check"></i> اختبارات تجريبية</h3>
+                            
+                            <div class="dropdown">
+                                <div class="dropdown-header" onclick="toggleDropdown('practice-tests')">
+                                    <span>اختبارات تجريبية لجميع الصفوف</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-content" id="practice-tests">
+                                    <div class="empty-message">
+                                        <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                                        <p>سيتم إضافة اختبارات تجريبية قريباً</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1360,7 +1714,10 @@
         </footer>
     </div>
 
-    <div class="toast" id="toast">تم إرسال رسالتك بنجاح!</div>
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">تم إرسال رسالتك بنجاح!</span>
+    </div>
 
     <script>
         // إنشاء رموز رياضيات عشوائية متحركة في الخلفية
@@ -1368,18 +1725,41 @@
             const mathBackground = document.getElementById('mathBackground');
             const mathSymbols = ['∑', '∫', '√', 'π', '∞', 'Δ', 'α', 'β', 'γ', 'θ', 'λ', 'μ', 'σ', 'ω', '≡', '±', '≠', '≈', '≤', '≥', '÷', '×', '→', '∀', '∃', '∈', '∉'];
             
-            for (let i = 0; i < 40; i++) {
+            for (let i = 0; i < 25; i++) {
                 const symbol = document.createElement('div');
                 symbol.className = 'math-symbol';
                 symbol.textContent = mathSymbols[Math.floor(Math.random() * mathSymbols.length)];
                 
                 // تعيين مواقع عشوائية للرموز
-                symbol.style.left = Math.random() * 100 + '%';
+                symbol.style.right = Math.random() * 100 + '%';
                 symbol.style.animationDuration = (Math.random() * 20 + 10) + 's';
                 symbol.style.animationDelay = Math.random() * 5 + 's';
                 
                 mathBackground.appendChild(symbol);
             }
+            
+            // تهيئة التبويبات
+            initTabs();
+            
+            // تهيئة شريط التقدم
+            initProgressBar();
+            
+            // تهيئة زر العودة للأعلى
+            initScrollToTop();
+            
+            // تهيئة البحث
+            initSearch();
+            
+            // جعل الأقسام مفتوحة بشكل افتراضي
+            document.querySelectorAll('.card-body').forEach(section => {
+                section.classList.remove('collapsed');
+            });
+            
+            // محاكاة تحميل الصفحة
+            showLoading();
+            setTimeout(() => {
+                hideLoading();
+            }, 1000);
         });
 
         // وظيفة تبديل فتح وإغلاق الأقسام
@@ -1415,9 +1795,19 @@
         }
 
         // وظيفة إظافة رسالة التأكيد
-        function showToast(message) {
+        function showToast(message, type = 'success') {
             const toast = document.getElementById('toast');
-            toast.textContent = message;
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            toast.className = 'toast';
+            
+            if (type === 'error') {
+                toast.classList.add('error');
+            } else if (type === 'warning') {
+                toast.classList.add('warning');
+            }
+            
             toast.classList.add('show');
             
             setTimeout(() => {
@@ -1455,14 +1845,113 @@
             }
         });
 
-        // جعل الأقسام مفتوحة بشكل افتراضي
-        document.addEventListener('DOMContentLoaded', function() {
-            // فتح جميع الأقسام عند تحميل الصفحة
-            document.querySelectorAll('.card-body').forEach(section => {
-                section.classList.remove('collapsed');
+        // تهيئة التبويبات
+        function initTabs() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // إزالة النشاط من جميع الأزرار والمحتويات
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // إضافة النشاط للزر والمحتوى المحدد
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab') + '-tab';
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+
+        // تهيئة شريط التقدم
+        function initProgressBar() {
+            const progressBar = document.getElementById('progressBar');
+            
+            window.addEventListener('scroll', () => {
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight - windowHeight;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const progress = (scrollTop / documentHeight) * 100;
+                
+                progressBar.style.width = progress + '%';
+            });
+        }
+
+        // تهيئة زر العودة للأعلى
+        function initScrollToTop() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
             });
             
-            // إضافة تأثير التحميل عند النقر على أزرار التحميل
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // تهيئة البحث
+        function initSearch() {
+            const searchInput = document.getElementById('searchInput');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                if (searchTerm.length > 2) {
+                    // البحث في العناوين والروابط
+                    const items = document.querySelectorAll('.lesson-title, .test-title, .book-title, .dropdown-header span');
+                    let found = false;
+                    
+                    items.forEach(item => {
+                        const text = item.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            item.closest('.lesson-item, .test-item, .book-item, .dropdown').style.display = 'block';
+                            found = true;
+                            
+                            // توسيع القوائم المنسدلة التي تحتوي على نتائج
+                            const dropdown = item.closest('.dropdown-content');
+                            if (dropdown && !dropdown.classList.contains('show')) {
+                                const dropdownHeader = dropdown.previousElementSibling;
+                                dropdownHeader.click();
+                            }
+                        } else {
+                            item.closest('.lesson-item, .test-item, .book-item, .dropdown').style.display = 'none';
+                        }
+                    });
+                    
+                    if (!found) {
+                        showToast('لم يتم العثور على نتائج', 'warning');
+                    }
+                } else {
+                    // إعادة عرض جميع العناصر
+                    const items = document.querySelectorAll('.lesson-item, .test-item, .book-item, .dropdown');
+                    items.forEach(item => {
+                        item.style.display = 'block';
+                    });
+                }
+            });
+        }
+
+        // إظهار نافذة التحميل
+        function showLoading() {
+            document.getElementById('loadingOverlay').classList.add('show');
+        }
+        
+        // إخفاء نافذة التحميل
+        function hideLoading() {
+            document.getElementById('loadingOverlay').classList.remove('show');
+        }
+
+        // إضافة تأثير التحميل عند النقر على أزرار التحميل
+        document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.download-btn').forEach(button => {
                 button.addEventListener('click', function(e) {
                     // إذا كان الزر يحتوي على رابط، لا نمنع السلوك الافتراضي
