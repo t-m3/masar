@@ -1113,6 +1113,56 @@
             width: 100%;
         }
         
+        /* إضافة أنماط جديدة لجدول الاختبارات */
+        .exam-table-container {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-top: 20px;
+            text-align: center;
+            border: 2px dashed var(--primary);
+        }
+        
+        .exam-table-title {
+            font-family: 'El Messiri', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .exam-table-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .exam-table-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .exam-table-btn:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+        }
+        
         /* تحسينات للشاشات الصغيرة جدًا */
         @media (max-width: 480px) {
             .container {
@@ -1298,7 +1348,7 @@
         </header>
         
         <!-- إضافة الأيقونة الدائرية لجدول الاختبارات -->
-        <a href="https://drive.google.com/file/d/1pld86jAnhyM0BsEsQ2VmGcdBr2isSjyV/view?usp=drive_link">
+        <a href="https://drive.google.com/file/d/1pld86jAnhyM0BsEsQ2VmGcdBr2isSjyV/view?usp=drive_link" class="exam-schedule-icon" target="_blank">
             <div class="icon-circle">
                 <i class="fas fa-calendar-alt"></i>
             </div>
@@ -1652,6 +1702,15 @@
                     <div class="card-body" id="tests">
                         <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 248, 225, 0.7), rgba(255, 236, 179, 0.7)); border-right-color: #ffa000;">
                             <h3 style="color: #ff8f00;"><i class="fas fa-file-alt"></i> اختبارات نهائية وتجريبية سابقة</h3>
+                            
+                            <!-- إضافة جدول الاختبارات هنا -->
+                            <div class="exam-table-container">
+                                <h3 class="exam-table-title">جدول الاختبارات النهائية</h3>
+                                <p class="exam-table-description">جدول الاختبارات النهائية للفصل الدراسي الأول 2025/2026م</p>
+                                <a href="https://drive.google.com/file/d/1pld86jAnhyM0BsEsQ2VmGcdBr2isSjyV/view?usp=drive_link" class="exam-table-btn" target="_blank" onclick="incrementViewCount()">
+                                    <i class="fas fa-external-link-alt"></i> فتح جدول الاختبارات
+                                </a>
+                            </div>
                             
                             <!-- اختبارات الصف العاشر فقط -->
                             <div class="dropdown">
