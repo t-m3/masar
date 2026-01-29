@@ -1176,7 +1176,7 @@
             width: 100%;
         }
         
-        /* أنماط جديدة لصفحة الفصل الدراسي الأول */
+        /* أنماط جديدة لصفحة الفصل الدراسي الأول والثاني */
         .semester-page {
             max-width: 1200px;
             margin: 0 auto;
@@ -1191,7 +1191,6 @@
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow);
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.85), rgba(58, 12, 163, 0.85));
             color: white;
         }
         
@@ -1535,13 +1534,13 @@
                                     <i class="fas fa-book-open"></i>
                                     الفصل الدراسي الثاني
                                 </div>
-                                <button class="semester-btn" style="background: linear-gradient(135deg, #4caf50, #2e7d32);" onclick="showToast('سيتم إضافة كتب الفصل الدراسي الثاني قريبًا', 'warning')">
-                                    <i class="fas fa-clock"></i>
-                                    قريبًا
+                                <button class="semester-btn" style="background: linear-gradient(135deg, #4caf50, #2e7d32);" onclick="loadSecondSemesterPage()">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    الانتقال إلى كتب الفصل الثاني
                                 </button>
                             </div>
                             <p class="semester-description">
-                                كتب الفصل الدراسي الثاني قيد الإعداد وسيتم إضافتها قريبًا. يمكنك الاطلاع على كتب الفصل الدراسي الأول في الوقت الحالي.
+                                يحتوي الفصل الدراسي الثاني على الكتب الدراسية للصفوف من الخامس إلى العاشر للفصل الدراسي الثاني، مع تحديثات وتحسينات.
                             </p>
                         </div>
                     </div>
@@ -1688,7 +1687,7 @@
     
     <!-- صفحة الفصل الدراسي الأول (مخفية افتراضيًا) -->
     <div id="firstSemesterPage" class="semester-page" style="display: none;">
-        <div class="page-header">
+        <div class="page-header" style="background: linear-gradient(135deg, rgba(67, 97, 238, 0.85), rgba(58, 12, 163, 0.85));">
             <h1 class="page-title">الفصل الدراسي الأول</h1>
             <p class="page-subtitle">كتب الرياضيات للصفوف من الخامس إلى العاشر</p>
             <button class="back-btn" onclick="loadHomePage()">
@@ -1902,6 +1901,271 @@
             </a>
         </div>
     </div>
+    
+    <!-- صفحة الفصل الدراسي الثاني (مخفية افتراضيًا) -->
+    <div id="secondSemesterPage" class="semester-page" style="display: none;">
+        <div class="page-header" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.85), rgba(46, 125, 50, 0.85));">
+            <h1 class="page-title">الفصل الدراسي الثاني</h1>
+            <p class="page-subtitle">كتب الرياضيات للصفوف من الخامس إلى العاشر</p>
+            <button class="back-btn" onclick="loadHomePage()">
+                <i class="fas fa-arrow-right"></i> العودة إلى الصفحة الرئيسية
+            </button>
+        </div>
+        
+        <!-- الصف العاشر -->
+        <div class="grade-section" style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.7), rgba(187, 222, 251, 0.7)); border-right-color: #2196f3;">
+            <h3 style="color: #1565c0;"><i class="fas fa-graduation-cap"></i> كتب الصف العاشر</h3>
+            <div class="book-list">
+                <div class="book-item" style="border-right-color: #4361ee;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">كتاب الطالب - الرياضيات للصف العاشر</div>
+                            <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1rx30Q2dCs3FPbJP1h8ZEsBeqpb3Jkyro/view?usp=drive_link" class="download-btn">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+                <div class="book-item" style="border-right-color: #4361ee;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">كتاب النشاط</div>
+                            <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/17ci5vcLJ7TZ-YXmJgiBdW5-bt2VQISb0/view?usp=drive_link" class="download-btn">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الصف التاسع -->
+        <div class="grade-section" style="background: linear-gradient(135deg, rgba(232, 245, 233, 0.7), rgba(200, 230, 201, 0.7)); border-right-color: #4caf50; margin-top: 25px;">
+            <h3 style="color: #2e7d32;"><i class="fas fa-graduation-cap"></i> كتب الصف التاسع</h3>
+            <div class="book-list">
+                <div class="book-item" style="border-right-color: #4caf50;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="book-info">
+                           <div class="book-title">كتاب الطالب - الرياضيات للصف التاسع</div>
+                           <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1RjU3SNCLrSwY1t-Ga5ZmyDXqdQvZSW3_/view?usp=drive_link" class="download-btn" id="grade9-student-book">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+                <div class="book-item" style="border-right-color: #4caf50;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="book-info">
+                             <div class="book-title">كتاب النشاط</div>
+                             <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1u5mh9VWzKI9n6uu3xOpdfQPv10gnysRR/view?usp=drive_link" class="download-btn" id="grade9-activity-book">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الصف الثامن -->
+        <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 243, 224, 0.7), rgba(255, 204, 128, 0.7)); border-right-color: #ff9800; margin-top: 25px;">
+            <h3 style="color: #ef6c00;"><i class="fas fa-graduation-cap"></i> كتب الصف الثامن</h3>
+            <div class="book-list">
+                <div class="book-item" style="border-right-color: #ff9800;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">كتاب الطالب - الرياضيات للصف الثامن</div>
+                            <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1mbByx2gzk911L5oyrzlMIE14XwkSx_nL/view?usp=drive_link" class="download-btn" id="grade8-student-book">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+                <div class="book-item" style="border-right-color: #ff9800;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">كتاب النشاط</div>
+                            <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1Wnzxwi1yJvAWIF1eaRhapeSwrZuSUNK5/view?usp=drive_link" class="download-btn" id="grade8-activity-book">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الصف السابع -->
+        <div class="grade-section" style="background: linear-gradient(135deg, rgba(252, 228, 236, 0.7), rgba(248, 187, 208, 0.7)); border-right-color: #e91e63; margin-top: 25px;">
+            <h3 style="color: #c2185b;"><i class="fas fa-graduation-cap"></i> كتب الصف السابع</h3>
+            <div class="book-list">
+                <div class="book-item" style="border-right-color: #e91e63;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">كتاب الطالب - الرياضيات للصف السابع</div>
+                            <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1ceaiU5s7s5iAP_WE-AB4uHMJ8s8P5a2j/view?usp=drive_link" class="download-btn" id="grade7-student-book">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+                <div class="book-item" style="border-right-color: #e91e63;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">كتاب النشاط</div>
+                            <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1WoR6Sv5bIX1qljxCpU6QNT0xM5BKOBUE/view?usp=drive_link" class="download-btn" id="grade7-activity-book">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الصف السادس -->
+        <div class="grade-section" style="background: linear-gradient(135deg, rgba(225, 245, 254, 0.7), rgba(179, 229, 252, 0.7)); border-right-color: #00bcd4; margin-top: 25px;">
+            <h3 style="color: #00838f;"><i class="fas fa-graduation-cap"></i> كتب الصف السادس</h3>
+            <div class="book-list">
+                <div class="book-item" style="border-right-color: #00bcd4;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(225, 245, 254, 0.9); color: #00bcd4;">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">كتاب الطالب - الرياضيات للصف السادس</div>
+                            <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1chI8Yup3Fl4FCyoIzdqY4ElHHXpY8McP/view?usp=sharing" class="download-btn" id="grade6-student-book">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+                <div class="book-item" style="border-right-color: #00bcd4;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(225, 245, 254, 0.9); color: #00bcd4;">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">كتاب النشاط</div>
+                            <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1fEgUQYv-bYKcQh8qXRGG07NnBHsdTuMe/view?usp=sharing" class="download-btn" id="grade6-activity-book">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الصف الخامس -->
+        <div class="grade-section" style="background: linear-gradient(135deg, rgba(243, 229, 245, 0.7), rgba(225, 190, 231, 0.7)); border-right-color: #9c27b0; margin-top: 25px;">
+            <h3 style="color: #7b1fa2;"><i class="fas fa-graduation-cap"></i> كتب الصف الخامس</h3>
+            <div class="book-list">
+                <div class="book-item" style="border-right-color: #9c27b0;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(243, 229, 245, 0.9); color: #9c27b0;">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">كتاب الطالب - الرياضيات للصف الخامس</div>
+                            <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1N3ZHo2gKOdy4vHJ8LC7mCEomatr8Xzam/view?usp=sharing" class="download-btn" id="grade5-student-book">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+                <div class="book-item" style="border-right-color: #9c27b0;">
+                    <div class="book-container">
+                        <div class="book-icon" style="background: rgba(243, 229, 245, 0.9); color: #9c27b0;">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">كتاب النشاط</div>
+                            <div class="view-count">
+                                <i class="fas fa-calendar"></i>
+                                <span>الفصل الدراسي الثاني</span>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/13I0ZXyb_RWD1-iyCCarDUNSPo9_dNcpk/view?usp=sharing" class="download-btn" id="grade5-activity-book">
+                            <i class="fas fa-download"></i> تحميل
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="whatsapp-contact" style="margin-top: 30px;">
+            <h4><i class="fas fa-info-circle"></i> ملاحظة هامة</h4>
+            <p>جميع الكتب المرفوعة هي للفصل الدراسي الثاني فقط. إذا كنت بحاجة إلى أي كتاب غير موجود أو واجهت مشكلة في التحميل، يرجى التواصل معنا عبر الواتساب.</p>
+            <a href="https://wa.me/96895573386" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> التواصل عبر الواتساب
+            </a>
+        </div>
+    </div>
 
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
@@ -1950,7 +2214,7 @@
                 hideLoading();
             }, 1000);
             
-            // التحقق مما إذا كنا في صفحة الفصل الدراسي الأول
+            // التحقق مما إذا كنا في صفحة الفصل الدراسي الأول أو الثاني
             checkCurrentPage();
         });
 
@@ -2152,6 +2416,7 @@
             
             const mainContainer = document.getElementById('mainContainer');
             const firstSemesterPage = document.getElementById('firstSemesterPage');
+            const secondSemesterPage = document.getElementById('secondSemesterPage');
             const currentPage = document.getElementById('currentPage');
             
             // تحديث بيانات الصفحة الحالية
@@ -2159,6 +2424,7 @@
             
             // إخفاء الصفحة الرئيسية وإظهار صفحة الفصل الدراسي الأول
             mainContainer.style.display = 'none';
+            secondSemesterPage.style.display = 'none';
             firstSemesterPage.style.display = 'block';
             
             // إظهار رسالة نجاح
@@ -2174,20 +2440,52 @@
             document.title = "الفصل الدراسي الأول - منصة مسار للرياضيات";
         }
 
+        // وظيفة تحميل صفحة الفصل الدراسي الثاني
+        function loadSecondSemesterPage() {
+            console.log("تم النقر على زر الفصل الدراسي الثاني");
+            
+            const mainContainer = document.getElementById('mainContainer');
+            const firstSemesterPage = document.getElementById('firstSemesterPage');
+            const secondSemesterPage = document.getElementById('secondSemesterPage');
+            const currentPage = document.getElementById('currentPage');
+            
+            // تحديث بيانات الصفحة الحالية
+            currentPage.setAttribute('data-page', 'second-semester');
+            
+            // إخفاء الصفحة الرئيسية وإظهار صفحة الفصل الدراسي الثاني
+            mainContainer.style.display = 'none';
+            firstSemesterPage.style.display = 'none';
+            secondSemesterPage.style.display = 'block';
+            
+            // إظهار رسالة نجاح
+            showToast('تم تحميل صفحة الفصل الدراسي الثاني', 'success');
+            
+            // الانتقال إلى أعلى الصفحة
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // تحديث عنوان الصفحة
+            document.title = "الفصل الدراسي الثاني - منصة مسار للرياضيات";
+        }
+
         // وظيفة تحميل الصفحة الرئيسية
         function loadHomePage() {
             console.log("تم النقر على زر العودة للصفحة الرئيسية");
             
             const mainContainer = document.getElementById('mainContainer');
             const firstSemesterPage = document.getElementById('firstSemesterPage');
+            const secondSemesterPage = document.getElementById('secondSemesterPage');
             const currentPage = document.getElementById('currentPage');
             
             // تحديث بيانات الصفحة الحالية
             currentPage.setAttribute('data-page', 'home');
             
-            // إخفاء صفحة الفصل الدراسي الأول وإظهار الصفحة الرئيسية
+            // إخفاء صفحة الفصل الدراسي الأول والثاني وإظهار الصفحة الرئيسية
             mainContainer.style.display = 'block';
             firstSemesterPage.style.display = 'none';
+            secondSemesterPage.style.display = 'none';
             
             // الانتقال إلى أعلى الصفحة
             window.scrollTo({
@@ -2208,6 +2506,10 @@
             if (pageType === 'first-semester') {
                 loadFirstSemesterPage();
             }
+            // إذا كنا في صفحة الفصل الدراسي الثاني
+            else if (pageType === 'second-semester') {
+                loadSecondSemesterPage();
+            }
         }
 
         // دالة للتعامل مع زر الرجوع في المتصفح
@@ -2215,12 +2517,14 @@
             // إذا كان هناك حالة في السجل، نتحقق منها
             if (event.state && event.state.page === 'first-semester') {
                 loadFirstSemesterPage();
+            } else if (event.state && event.state.page === 'second-semester') {
+                loadSecondSemesterPage();
             } else {
                 loadHomePage();
             }
         });
         
-        // إضافة استماع لأزرار الفصل الدراسي
+        // إضافة استماع لأزرار الفصول الدراسية
         document.addEventListener('DOMContentLoaded', function() {
             // البحث عن زر الفصل الدراسي الأول
             const firstSemesterBtn = document.querySelector('.semester-btn[onclick="loadFirstSemesterPage()"]');
@@ -2228,16 +2532,23 @@
                 firstSemesterBtn.addEventListener('click', loadFirstSemesterPage);
             }
             
-            // البحث عن زر العودة للصفحة الرئيسية
-            const backBtn = document.querySelector('.back-btn[onclick="loadHomePage()"]');
-            if (backBtn) {
-                backBtn.addEventListener('click', loadHomePage);
+            // البحث عن زر الفصل الدراسي الثاني
+            const secondSemesterBtn = document.querySelector('.semester-btn[onclick="loadSecondSemesterPage()"]');
+            if (secondSemesterBtn) {
+                secondSemesterBtn.addEventListener('click', loadSecondSemesterPage);
             }
+            
+            // البحث عن زر العودة للصفحة الرئيسية
+            const backBtns = document.querySelectorAll('.back-btn[onclick="loadHomePage()"]');
+            backBtns.forEach(btn => {
+                btn.addEventListener('click', loadHomePage);
+            });
             
             // للتحقق: إضافة رسالة إلى وحدة التحكم
             console.log("تم تحميل JavaScript بنجاح");
             console.log("زر الفصل الدراسي الأول:", firstSemesterBtn);
-            console.log("زر العودة:", backBtn);
+            console.log("زر الفصل الدراسي الثاني:", secondSemesterBtn);
+            console.log("أزرار العودة:", backBtns);
         });
     </script>
 </body>
