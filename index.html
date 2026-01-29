@@ -235,6 +235,7 @@
             font-weight: 400;
         }
         
+        /* إضافة أنماط معلومات المعلم */
         .teacher-info {
             background: rgba(255, 255, 255, 0.2);
             padding: 12px;
@@ -269,6 +270,7 @@
             text-align: center;
         }
         
+        /* إضافة الأنماط الخاصة بالأيقونة الدائرية */
         .exam-schedule-icon {
             display: flex;
             flex-direction: column;
@@ -402,6 +404,42 @@
             max-height: 0;
             padding: 0;
             overflow: hidden;
+        }
+        
+        .card-body ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .card-body li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-body li:last-child {
+            border-bottom: none;
+        }
+        
+        .card-body a {
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            transition: var(--transition);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .card-body a:hover {
+            background: rgba(67, 97, 238, 0.1);
+            padding-right: 15px;
+        }
+        
+        .card-body a i {
+            margin-left: 10px;
+            font-size: 1.1rem;
         }
         
         .grade-section {
@@ -744,6 +782,7 @@
             background: var(--warning);
         }
         
+        /* أنماط القوائم المنسدلة الجديدة */
         .dropdown {
             position: relative;
             margin-bottom: 15px;
@@ -779,7 +818,7 @@
         }
         
         .dropdown-content.show {
-            max-height: 3000px;
+            max-height: 600px;
         }
         
         .dropdown-item {
@@ -820,6 +859,7 @@
             font-size: 1rem;
         }
         
+        /* أنماط مخصصة للدرس الأول مع الإطار والأيقونة */
         .lesson-item {
             background: white;
             padding: 15px;
@@ -855,6 +895,7 @@
             font-size: 1rem;
         }
         
+        /* نافذة الفيديو المنبثقة */
         .video-modal {
             display: none;
             position: fixed;
@@ -916,7 +957,7 @@
         
         .video-container {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* نسبة 16:9 */
             height: 0;
             overflow: hidden;
         }
@@ -930,6 +971,7 @@
             border: none;
         }
         
+        /* أنماط جديدة للاختبارات */
         .test-item {
             background: white;
             padding: 15px;
@@ -965,6 +1007,7 @@
             margin-bottom: 10px;
         }
         
+        /* نافذة التحميل */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -1000,6 +1043,7 @@
             100% { transform: rotate(360deg); }
         }
         
+        /* تبويبات التنقل */
         .tab-container {
             margin: 20px 0;
         }
@@ -1048,6 +1092,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* أنماط جديدة لعرض عدد المشاهدات */
         .view-count {
             display: flex;
             align-items: center;
@@ -1068,55 +1113,7 @@
             width: 100%;
         }
         
-        .exam-table-container {
-            background: white;
-            padding: 20px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-top: 20px;
-            text-align: center;
-            border: 2px dashed var(--primary);
-        }
-        
-        .exam-table-title {
-            font-family: 'El Messiri', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .exam-table-description {
-            color: #666;
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-        
-        .exam-table-btn {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 14px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-decoration: none;
-            margin-top: 10px;
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
-        }
-        
-        .exam-table-btn:hover {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
-        }
-        
+        /* تحسينات للشاشات الصغيرة جدًا */
         @media (max-width: 480px) {
             .container {
                 padding: 10px;
@@ -1186,6 +1183,7 @@
             }
         }
         
+        /* تحسينات للشاشات المتوسطة والكبيرة */
         @media (min-width: 768px) {
             .container {
                 padding: 20px;
@@ -1275,6 +1273,7 @@
     
     <div class="container">
         <header>
+            <!-- صورة بديلة كعنصر img -->
             <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="خلفية رياضيات" class="header-image">
             
             <div class="math-background" id="mathBackground"></div>
@@ -1287,6 +1286,7 @@
                 <h1>منصة مسار</h1>
                 <p class="subtitle">بوابتك إلى عالم الرياضيات</p>
                 
+                <!-- إضافة معلومات المعلم -->
                 <div class="teacher-info">
                     <div class="teacher-name">
                         <i class="fas fa-user-graduate"></i>
@@ -1297,7 +1297,8 @@
             </div>
         </header>
         
-        <a href="https://drive.google.com/file/d/1mLOfmg-dBQhN2u5nMAvLKpj4sXoPHEVg/view?usp=drivesdk" class="exam-schedule-icon" target="_blank">
+        <!-- إضافة الأيقونة الدائرية لجدول الاختبارات -->
+        <a href="https://top4top.io/downloadf-3612kjnfm1-pdf.html" target="_blank" class="exam-schedule-icon">
             <div class="icon-circle">
                 <i class="fas fa-calendar-alt"></i>
             </div>
@@ -1305,6 +1306,7 @@
             <p class="icon-subtitle">انقر هنا لفتح جدول الاختبارات النهائية للفصل الدراسي الأول</p>
         </a>
         
+        <!-- تبويبات التنقل -->
         <div class="tab-container">
             <div class="tab-buttons">
                 <button class="tab-btn active" data-tab="about">من نحن</button>
@@ -1358,553 +1360,207 @@
                         <i class="fas fa-chevron-up"></i>
                     </button>
                     <div class="card-body" id="mathLibrary">
-                        <!-- القائمة المنسدلة الأولى - كتب الفصل الدراسي الأول -->
-                        <div class="dropdown">
-                            <div class="dropdown-header" onclick="toggleDropdown('firstSemesterBooks')">
-                                <span>كتب الفصل الدراسي الأول</span>
-                                <i class="fas fa-chevron-up"></i>
-                            </div>
-                            <div class="dropdown-content show" id="firstSemesterBooks">  
-                                <!-- الصف العاشر -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.7), rgba(187, 222, 251, 0.7)); border-right-color: #2196f3;">
-                                    <h3 style="color: #1565c0;"><i class="fas fa-graduation-cap"></i> كتب الصف العاشر</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #4361ee;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف العاشر</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1rx30Q2dCs3FPbJP1h8ZEsBeqpb3Jkyro/view?usp=drive_link" class="download-btn">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
+                        <!-- الصف العاشر -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.7), rgba(187, 222, 251, 0.7)); border-right-color: #2196f3;">
+                            <h3 style="color: #1565c0;"><i class="fas fa-graduation-cap"></i> كتب الصف العاشر</h3>
+                            <div class="book-list">
+                                <div class="book-item" style="border-right-color: #4361ee;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
+                                            <i class="fas fa-book"></i>
                                         </div>
-                                        <div class="book-item" style="border-right-color: #4361ee;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/17ci5vcLJ7TZ-YXmJgiBdW5-bt2VQISb0/view?usp=drive_link" class="download-btn">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب الطالب - الرياضيات للصف العاشر</div>
                                         </div>
+                                        <a href="https://drive.google.com/file/d/1rx30Q2dCs3FPbJP1h8ZEsBeqpb3Jkyro/view?usp=drive_link" class="download-btn">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
                                     </div>
                                 </div>
-                                
-                                <!-- الصف التاسع -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(232, 245, 233, 0.7), rgba(200, 230, 201, 0.7)); border-right-color: #4caf50; margin-top: 25px;">
-                                    <h3 style="color: #2e7d32;"><i class="fas fa-graduation-cap"></i> كتب الصف التاسع</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #4caf50;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف التاسع</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1RjU3SNCLrSwY1t-Ga5ZmyDXqdQvZSW3_/view?usp=drive_link" class="download-btn" id="grade9-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
+                                <div class="book-item" style="border-right-color: #4361ee;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
+                                            <i class="fas fa-tasks"></i>
                                         </div>
-                                        <div class="book-item" style="border-right-color: #4caf50;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1u5mh9VWzKI9n6uu3xOpdfQPv10gnysRR/view?usp=drive_link" class="download-btn" id="grade9-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب النشاط</div>
                                         </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- الصف الثامن -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 243, 224, 0.7), rgba(255, 204, 128, 0.7)); border-right-color: #ff9800; margin-top: 25px;">
-                                    <h3 style="color: #ef6c00;"><i class="fas fa-graduation-cap"></i> كتب الصف الثامن</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #ff9800;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف الثامن</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1mbByx2gzk911L5oyrzlMIE14XwkSx_nL/view?usp=drive_link" class="download-btn" id="grade8-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #ff9800;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1Wnzxwi1yJvAWIF1eaRhapeSwrZuSUNK5/view?usp=drive_link" class="download-btn" id="grade8-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- الصف السابع -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(252, 228, 236, 0.7), rgba(248, 187, 208, 0.7)); border-right-color: #e91e63; margin-top: 25px;">
-                                    <h3 style="color: #c2185b;"><i class="fas fa-graduation-cap"></i> كتب الصف السابع</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #e91e63;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف السابع</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1ceaiU5s7s5iAP_WE-AB4uHMJ8s8P5a2j/view?usp=drive_link" class="download-btn" id="grade7-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #e91e63;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1WoR6Sv5bIX1qljxCpU6QNT0xM5BKOBUE/view?usp=drive_link" class="download-btn" id="grade7-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- الصف السادس -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(225, 245, 254, 0.7), rgba(179, 229, 252, 0.7)); border-right-color: #00bcd4; margin-top: 25px;">
-                                    <h3 style="color: #00838f;"><i class="fas fa-graduation-cap"></i> كتب الصف السادس</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #00bcd4;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(225, 245, 254, 0.9); color: #00bcd4;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف السادس</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1chI8Yup3Fl4FCyoIzdqY4ElHHXpY8McP/view?usp=sharing" class="download-btn" id="grade6-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #00bcd4;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(225, 245, 254, 0.9); color: #00bcd4;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1fEgUQYv-bYKcQh8qXRGG07NnBHsdTuMe/view?usp=sharing" class="download-btn" id="grade6-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- الصف الخامس -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(243, 229, 245, 0.7), rgba(225, 190, 231, 0.7)); border-right-color: #9c27b0; margin-top: 25px;">
-                                    <h3 style="color: #7b1fa2;"><i class="fas fa-graduation-cap"></i> كتب الصف الخامس</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #9c27b0;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(243, 229, 245, 0.9); color: #9c27b0;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف الخامس</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1N3ZHo2gKOdy4vHJ8LC7mCEomatr8Xzam/view?usp=sharing" class="download-btn" id="grade5-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #9c27b0;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(243, 229, 245, 0.9); color: #9c27b0;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/13I0ZXyb_RWD1-iyCCarDUNSPo9_dNcpk/view?usp=sharing" class="download-btn" id="grade5-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
+                                        <a href="https://drive.google.com/file/d/17ci5vcLJ7TZ-YXmJgiBdW5-bt2VQISb0/view?usp=drive_link" class="download-btn">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                       <!-- القائمة المنسدلة الثانية - كتب الفصل الدراسي الثاني -->
-                        <div class="dropdown">
-                            <div class="dropdown-header" onclick="toggleDropdown('firstSemesterBooks')">
-                                <span>كتب الفصل الدراسي الثاني</span>
-                                <i class="fas fa-chevron-up"></i>
-                            </div>
-                            <div class="dropdown-content show" id="firstSemesterBooks">
-                                   
-                                <!-- الصف الثاني عشر الأساسي -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(252, 228, 236, 0.7), rgba(248, 187, 208, 0.7)); border-right-color: #e91e63; margin-top: 25px;">
-                                    <h3 style="color: #c2185b;"><i class="fas fa-graduation-cap"></i> كتب الصف الثاني عشر الأساسي</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #e91e63;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف الثاني عشر الأساسي</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1CWl9bqafY3VjkgkROtkb4m4Sapgs9Shw/view?usp=sharing" class="download-btn" id="grade7-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
+                        <!-- الصف التاسع -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(232, 245, 233, 0.7), rgba(200, 230, 201, 0.7)); border-right-color: #4caf50; margin-top: 25px;">
+                            <h3 style="color: #2e7d32;"><i class="fas fa-graduation-cap"></i> كتب الصف التاسع</h3>
+                            <div class="book-list">
+                                <div class="book-item" style="border-right-color: #4caf50;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
+                                            <i class="fas fa-book"></i>
                                         </div>
-                                        <div class="book-item" style="border-right-color: #e91e63;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1onTE_u9iWYsAnIaukyyIK_L_OdCYdh_t/view?usp=sharing" class="download-btn" id="grade7-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
+                                        <div class="book-info">
+                                           <div class="book-title">كتاب الطالب - الرياضيات للصف التاسع</div>
                                         </div>
+                                        <a href="https://drive.google.com/file/d/1RjU3SNCLrSwY1t-Ga5ZmyDXqdQvZSW3_/view?usp=drive_link" class="download-btn" id="grade9-student-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
                                     </div>
                                 </div>
-                                
-                                <!-- الصف الثاني عشر المتقدم -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 243, 224, 0.7), rgba(255, 204, 128, 0.7)); border-right-color: #ff9800; margin-top: 25px;">
-                                    <h3 style="color: #ef6c00;"><i class="fas fa-graduation-cap"></i> كتب الصف الثاني عشر المتقدم</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #ff9800;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف الثاني عشر المتقدم</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/10kxtxcFSeUGXoMx0qPVlMEvlh_9ofd9p/view?usp=sharing" class="download-btn" id="grade8-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
+                                <div class="book-item" style="border-right-color: #4caf50;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
+                                            <i class="fas fa-tasks"></i>
                                         </div>
-                                        <div class="book-item" style="border-right-color: #ff9800;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1kO4zrMnwsc1HTTc3FOLPGzCicP7Mu8Z2/view?usp=sharing" class="download-btn" id="grade8-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
+                                        <div class="book-info">
+                                             <div class="book-title">كتاب النشاط</div>
                                         </div>
-                                    </div>
-                                </div>
-                                
-                                 <!-- الصف الحادي عشر الأساسي -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(232, 245, 233, 0.7), rgba(200, 230, 201, 0.7)); border-right-color: #4caf50; margin-top: 25px;">
-                                    <h3 style="color: #2e7d32;"><i class="fas fa-graduation-cap"></i> كتب الصف الحادي عشر الأساسي</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #4caf50;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف الحادي عشر الأساسي</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1JFxInze0UjWBNccfatgODkVuq87npMkc/view?usp=sharing" class="download-btn" id="grade9-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #4caf50;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1thugBiC4tjHQ810-TgK79YUVnep-ignl/view?usp=sharing" class="download-btn" id="grade9-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                 <!-- الصف الحادي عشر المتقدم -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.7), rgba(187, 222, 251, 0.7)); border-right-color: #2196f3;">
-                                    <h3 style="color: #1565c0;"><i class="fas fa-graduation-cap"></i> كتب الصف الحادي عشر المتقدم</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #4361ee;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف الحادي عشر المتقدم</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1YoAiQebv_CCHmibCa3eo7TvZk4cfnFvV/view?usp=sharing" class="download-btn">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #4361ee;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1bkPQ9Bc6dPBYMpTmoNjw6sMAxbOhYK_X/view?usp=sharing" class="download-btn">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              
-                                <!-- الصف العاشر -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.7), rgba(187, 222, 251, 0.7)); border-right-color: #2196f3;">
-                                    <h3 style="color: #1565c0;"><i class="fas fa-graduation-cap"></i> كتب الصف العاشر</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #4361ee;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف العاشر</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1sPQjZBuq-fd6O__iTwefiDZX1kpZay3U/view?usp=drive_link" class="download-btn">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #4361ee;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(227, 242, 253, 0.9); color: #2196f3;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1aQCeOpvH72jcLXP0kGvcrPkJ1Y9lFUKF/view?usp=drive_link" class="download-btn">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- الصف التاسع -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(232, 245, 233, 0.7), rgba(200, 230, 201, 0.7)); border-right-color: #4caf50; margin-top: 25px;">
-                                    <h3 style="color: #2e7d32;"><i class="fas fa-graduation-cap"></i> كتب الصف التاسع</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #4caf50;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف التاسع</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1V3aHDro5JgU47EChTloO8CBc3htWsf3k/view?usp=drive_link" class="download-btn" id="grade9-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #4caf50;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(232, 245, 233, 0.9); color: #4caf50;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/10Kzlq47qJwpga61Jwq5Y_ElJJpcFd8qA/view?usp=drive_link" class="download-btn" id="grade9-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- الصف الثامن -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 243, 224, 0.7), rgba(255, 204, 128, 0.7)); border-right-color: #ff9800; margin-top: 25px;">
-                                    <h3 style="color: #ef6c00;"><i class="fas fa-graduation-cap"></i> كتب الصف الثامن</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #ff9800;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف الثامن</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1Kkql4Uoq8v5kYHv6wNOlka-1H3GnBmAC/view?usp=sharing" class="download-btn" id="grade8-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #ff9800;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1D6rdI-y6vx0iGM-bAQZWI8rKJdgt3AKO/view?usp=sharing" class="download-btn" id="grade8-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- الصف السابع -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(252, 228, 236, 0.7), rgba(248, 187, 208, 0.7)); border-right-color: #e91e63; margin-top: 25px;">
-                                    <h3 style="color: #c2185b;"><i class="fas fa-graduation-cap"></i> كتب الصف السابع</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #e91e63;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف السابع</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1Ozfc3Eh8NHLvekJJFDLwjMTqrhIA7Hct/view?usp=sharing" class="download-btn" id="grade7-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #e91e63;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1q_Ki6vYuaLXM5X1IEImvP8wclYJ-dOZF/view?usp=sharing" class="download-btn" id="grade7-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- الصف السادس -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(225, 245, 254, 0.7), rgba(179, 229, 252, 0.7)); border-right-color: #00bcd4; margin-top: 25px;">
-                                    <h3 style="color: #00838f;"><i class="fas fa-graduation-cap"></i> كتب الصف السادس</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #00bcd4;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(225, 245, 254, 0.9); color: #00bcd4;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف السادس</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/15SaVDRpCHfrBCBnT-qDHLL8YVdVu2bgX/view?usp=sharing" class="download-btn" id="grade6-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #00bcd4;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(225, 245, 254, 0.9); color: #00bcd4;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1hK4VMGefQ-IUbz0fwWOfKcWaG1V-WlNH/view?usp=sharing" class="download-btn" id="grade6-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- الصف الخامس -->
-                                <div class="grade-section" style="background: linear-gradient(135deg, rgba(243, 229, 245, 0.7), rgba(225, 190, 231, 0.7)); border-right-color: #9c27b0; margin-top: 25px;">
-                                    <h3 style="color: #7b1fa2;"><i class="fas fa-graduation-cap"></i> كتب الصف الخامس</h3>
-                                    <div class="book-list">
-                                        <div class="book-item" style="border-right-color: #9c27b0;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(243, 229, 245, 0.9); color: #9c27b0;">
-                                                    <i class="fas fa-book"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب الطالب - الرياضيات للصف الخامس</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1n-gzYy8_2LuOl_dkaZAdlhXkcDE__Jy_/view?usp=sharing" class="download-btn" id="grade5-student-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="book-item" style="border-right-color: #9c27b0;">
-                                            <div class="book-container">
-                                                <div class="book-icon" style="background: rgba(243, 229, 245, 0.9); color: #9c27b0;">
-                                                    <i class="fas fa-tasks"></i>
-                                                </div>
-                                                <div class="book-info">
-                                                    <div class="book-title">كتاب النشاط</div>
-                                                </div>
-                                                <a href="https://drive.google.com/file/d/1jTBOMmVilfXp_aFbqvx1KeKpFT3DiWkz/view?usp=sharing" class="download-btn" id="grade5-activity-book">
-                                                    <i class="fas fa-download"></i> تحميل
-                                                </a>
-                                            </div>
-                                        </div>
+                                        <a href="https://drive.google.com/file/d/1u5mh9VWzKI9n6uu3xOpdfQPv10gnysRR/view?usp=drive_link" class="download-btn" id="grade9-activity-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
+                        <!-- الصف الثامن -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 243, 224, 0.7), rgba(255, 204, 128, 0.7)); border-right-color: #ff9800; margin-top: 25px;">
+                            <h3 style="color: #ef6c00;"><i class="fas fa-graduation-cap"></i> كتب الصف الثامن</h3>
+                            <div class="book-list">
+                                <div class="book-item" style="border-right-color: #ff9800;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب الطالب - الرياضيات للصف الثامن</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1mbByx2gzk911L5oyrzlMIE14XwkSx_nL/view?usp=drive_link" class="download-btn" id="grade8-student-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="book-item" style="border-right-color: #ff9800;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(255, 243, 224, 0.9); color: #ff9800;">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب النشاط</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1Wnzxwi1yJvAWIF1eaRhapeSwrZuSUNK5/view?usp=drive_link" class="download-btn" id="grade8-activity-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- الصف السابع -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(252, 228, 236, 0.7), rgba(248, 187, 208, 0.7)); border-right-color: #e91e63; margin-top: 25px;">
+                            <h3 style="color: #c2185b;"><i class="fas fa-graduation-cap"></i> كتب الصف السابع</h3>
+                            <div class="book-list">
+                                <div class="book-item" style="border-right-color: #e91e63;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب الطالب - الرياضيات للصف السابع</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1ceaiU5s7s5iAP_WE-AB4uHMJ8s8P5a2j/view?usp=drive_link" class="download-btn" id="grade7-student-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="book-item" style="border-right-color: #e91e63;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(252, 228, 236, 0.9); color: #e91e63;">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب النشاط</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1WoR6Sv5bIX1qljxCpU6QNT0xM5BKOBUE/view?usp=drive_link" class="download-btn" id="grade7-activity-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- الصف السادس - تمت الإضافة -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(225, 245, 254, 0.7), rgba(179, 229, 252, 0.7)); border-right-color: #00bcd4; margin-top: 25px;">
+                            <h3 style="color: #00838f;"><i class="fas fa-graduation-cap"></i> كتب الصف السادس</h3>
+                            <div class="book-list">
+                                <div class="book-item" style="border-right-color: #00bcd4;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(225, 245, 254, 0.9); color: #00bcd4;">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب الطالب - الرياضيات للصف السادس</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1chI8Yup3Fl4FCyoIzdqY4ElHHXpY8McP/view?usp=sharing" class="download-btn" id="grade6-student-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="book-item" style="border-right-color: #00bcd4;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(225, 245, 254, 0.9); color: #00bcd4;">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب النشاط</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1fEgUQYv-bYKcQh8qXRGG07NnBHsdTuMe/view?usp=sharing" class="download-btn" id="grade6-activity-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- الصف الخامس - تمت الإضافة -->
+                        <div class="grade-section" style="background: linear-gradient(135deg, rgba(243, 229, 245, 0.7), rgba(225, 190, 231, 0.7)); border-right-color: #9c27b0; margin-top: 25px;">
+                            <h3 style="color: #7b1fa2;"><i class="fas fa-graduation-cap"></i> كتب الصف الخامس</h3>
+                            <div class="book-list">
+                                <div class="book-item" style="border-right-color: #9c27b0;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(243, 229, 245, 0.9); color: #9c27b0;">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب الطالب - الرياضيات للصف الخامس</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/1N3ZHo2gKOdy4vHJ8LC7mCEomatr8Xzam/view?usp=sharing" class="download-btn" id="grade5-student-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="book-item" style="border-right-color: #9c27b0;">
+                                    <div class="book-container">
+                                        <div class="book-icon" style="background: rgba(243, 229, 245, 0.9); color: #9c27b0;">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">كتاب النشاط</div>
+                                        </div>
+                                        <a href="https://drive.google.com/file/d/13I0ZXyb_RWD1-iyCCarDUNSPo9_dNcpk/view?usp=sharing" class="download-btn" id="grade5-activity-book">
+                                            <i class="fas fa-download"></i> تحميل
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="tab-content" id="exercises-tab">
                 <div class="card">
                     <button class="card-header" onclick="toggleSection('exercises')">
@@ -1920,26 +1576,19 @@
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                                 <div class="dropdown-content" id="grade10">
+                                    <!-- تمت إضافة الدرس الأول هنا مع الإطار والأيقونة -->
                                     <div class="lesson-item" onclick="openVideoModal('الدرس الأول 1-1 التمثيلات البيانية للتحويل', 'https://drive.google.com/file/d/1ZXjR28S1r32EmEGbYuzer3hgXR3AevWk/preview')">
                                         <i class="fas fa-eye watch-icon"></i>
                                         <span class="lesson-title">الدرس الأول 1-1 التمثيلات البيانية للتحويل</span>
                                     </div>
                                     
+                                    <!-- تمت إضافة الدرس الثاني هنا مع الإطار والأيقونة -->
                                     <div class="lesson-item" onclick="openVideoModal('الدرس الثاني 1-2 التمثيلات البيانية للدوال', 'https://d.top4top.io/m_36033wax81.mp4')">
                                         <i class="fas fa-eye watch-icon"></i>
                                         <span class="lesson-title">الدرس الثاني 1-2 التمثيلات البيانية للدوال</span>
                                     </div>
                                     
-                                    <div class="lesson-item" onclick="openVideoModal('تمرين 3 - ', 'https://drive.google.com/file/d/1ksXm7PE_F65yoJyz6Ggecddb9ziA4Z-3/preview')">
-                                        <i class="fas fa-eye watch-icon"></i>
-                                        <span class="lesson-title">تمرين 3 - </span>
-                                    </div>
-
-                                    <div class="lesson-item" onclick="openVideoModal('تمرين 4 - ', 'https://f.top4top.io/m_3638rv7a81.mp4')">
-                                        <i class="fas fa-eye watch-icon"></i>
-                                        <span class="lesson-title">تمرين 4 - </span>
-                                    </div>
-                                    
+                                    <!-- باقي المحتوى الأصلي -->
                                     <div class="empty-message">
                                         <i class="fas fa-folder-open" style="font-size: 2rem; margin-bottom: 10px;"></i>
                                         <p>لم يتم إضافة تمارين أخرى بعد</p>
@@ -1947,6 +1596,7 @@
                                 </div>
                             </div>
                             
+                            <!-- تمارين الصف التاسع -->
                             <div class="dropdown">
                                 <div class="dropdown-header" onclick="toggleDropdown('grade9')">
                                     <span>تمارين الصف التاسع</span>
@@ -1960,6 +1610,7 @@
                                 </div>
                             </div>
                             
+                            <!-- تمارين الصف الثامن -->
                             <div class="dropdown">
                                 <div class="dropdown-header" onclick="toggleDropdown('grade8')">
                                     <span>تمارين الصف الثامن</span>
@@ -1973,6 +1624,7 @@
                                 </div>
                             </div>
                             
+                            <!-- تمارين الصف السابع -->
                             <div class="dropdown">
                                 <div class="dropdown-header" onclick="toggleDropdown('grade7')">
                                     <span>تمارين الصف السابع</span>
@@ -1990,6 +1642,7 @@
                 </div>
             </div>
             
+            <!-- تبويب الاختبارات الجديد -->
             <div class="tab-content" id="tests-tab">
                 <div class="card">
                     <button class="card-header" onclick="toggleSection('tests')">
@@ -1999,7 +1652,8 @@
                     <div class="card-body" id="tests">
                         <div class="grade-section" style="background: linear-gradient(135deg, rgba(255, 248, 225, 0.7), rgba(255, 236, 179, 0.7)); border-right-color: #ffa000;">
                             <h3 style="color: #ff8f00;"><i class="fas fa-file-alt"></i> اختبارات نهائية وتجريبية سابقة</h3>
-                              
+                            
+                            <!-- اختبارات الصف العاشر فقط -->
                             <div class="dropdown">
                                 <div class="dropdown-header" onclick="toggleDropdown('tests-grade10')">
                                     <span>اختبارات الصف العاشر</span>
@@ -2027,6 +1681,7 @@
             </div>
         </div>
         
+        <!-- نافذة الفيديو المنبثقة -->
         <div class="video-modal" id="videoModal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -2050,6 +1705,7 @@
     </div>
 
     <script>
+        // إنشاء رموز رياضيات عشوائية متحركة في الخلفية
         document.addEventListener('DOMContentLoaded', function() {
             const mathBackground = document.getElementById('mathBackground');
             const mathSymbols = ['∑', '∫', '√', 'π', '∞', 'Δ', 'α', 'β', 'γ', 'θ', 'λ', 'μ', 'σ', 'ω', '≡', '±', '≠', '≈', '≤', '≥', '÷', '×', '→', '∀', '∃', '∈', '∉'];
@@ -2059,6 +1715,7 @@
                 symbol.className = 'math-symbol';
                 symbol.textContent = mathSymbols[Math.floor(Math.random() * mathSymbols.length)];
                 
+                // تعيين مواقع عشوائية للرموز
                 symbol.style.right = Math.random() * 100 + '%';
                 symbol.style.animationDuration = (Math.random() * 20 + 10) + 's';
                 symbol.style.animationDelay = Math.random() * 5 + 's';
@@ -2066,36 +1723,48 @@
                 mathBackground.appendChild(symbol);
             }
             
+            // تهيئة التبويبات
             initTabs();
+            
+            // تهيئة شريط التقدم
             initProgressBar();
+            
+            // تهيئة زر العودة للأعلى
             initScrollToTop();
             
+            // جعل الأقسام مفتوحة بشكل افتراضي
             document.querySelectorAll('.card-body').forEach(section => {
                 section.classList.remove('collapsed');
             });
             
+            // تحميل عدد المشاهدات من localStorage
             loadViewCount();
             
+            // محاكاة تحميل الصفحة
             showLoading();
             setTimeout(() => {
                 hideLoading();
             }, 1000);
         });
 
+        // وظيفة تحميل عدد المشاهدات من localStorage
         function loadViewCount() {
             const viewCount = localStorage.getItem('testViewCount') || 0;
             document.getElementById('testViewCount').textContent = viewCount;
         }
 
+        // وظيفة زيادة عدد المشاهدات
         function incrementViewCount() {
             let viewCount = parseInt(localStorage.getItem('testViewCount') || 0);
             viewCount++;
             localStorage.setItem('testViewCount', viewCount);
             document.getElementById('testViewCount').textContent = viewCount;
             
+            // إظهار رسالة تأكيد
             showToast('تم فتح ملف الاختبارات السابقة', 'success');
         }
 
+        // وظيفة تبديل فتح وإغلاق الأقسام
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
             const icon = section.previousElementSibling.querySelector('i');
@@ -2111,6 +1780,7 @@
             }
         }
 
+        // وظيفة تبديل القوائم المنسدلة
         function toggleDropdown(dropdownId) {
             const dropdown = document.getElementById(dropdownId);
             const icon = dropdown.previousElementSibling.querySelector('i');
@@ -2126,6 +1796,7 @@
             }
         }
 
+        // وظيفة إظافة رسالة التأكيد
         function showToast(message, type = 'success') {
             const toast = document.getElementById('toast');
             const toastMessage = document.getElementById('toastMessage');
@@ -2146,6 +1817,7 @@
             }, 3000);
         }
 
+        // وظيفة فتح نافذة الفيديو
         function openVideoModal(title, videoUrl) {
             const modal = document.getElementById('videoModal');
             const modalTitle = document.getElementById('modalTitle');
@@ -2155,33 +1827,38 @@
             videoFrame.src = videoUrl;
             
             modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden'; // منع التمرير عند فتح النافذة
         }
 
+        // وظيفة إغلاق نافذة الفيديو
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
             const videoFrame = document.getElementById('videoFrame');
             
             modal.classList.remove('show');
-            videoFrame.src = '';
-            document.body.style.overflow = '';
+            videoFrame.src = ''; // إزالة مصدر الفيديو
+            document.body.style.overflow = ''; // إعادة التمرير
         }
 
+        // إغلاق النوافذ عند النقر خارجها
         document.getElementById('videoModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeVideoModal();
             }
         });
 
+        // تهيئة التبويبات
         function initTabs() {
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabContents = document.querySelectorAll('.tab-content');
             
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
+                    // إزالة النشاط من جميع الأزرار والمحتويات
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     tabContents.forEach(content => content.classList.remove('active'));
                     
+                    // إضافة النشاط للزر والمحتوى المحدد
                     button.classList.add('active');
                     const tabId = button.getAttribute('data-tab') + '-tab';
                     document.getElementById(tabId).classList.add('active');
@@ -2189,6 +1866,7 @@
             });
         }
 
+        // تهيئة شريط التقدم
         function initProgressBar() {
             const progressBar = document.getElementById('progressBar');
             
@@ -2202,6 +1880,7 @@
             });
         }
 
+        // تهيئة زر العودة للأعلى
         function initScrollToTop() {
             const scrollToTopBtn = document.getElementById('scrollToTop');
             
@@ -2221,30 +1900,37 @@
             });
         }
 
+        // إظهار نافذة التحميل
         function showLoading() {
             document.getElementById('loadingOverlay').classList.add('show');
         }
         
+        // إخفاء نافذة التحميل
         function hideLoading() {
             document.getElementById('loadingOverlay').classList.remove('show');
         }
 
+        // إضافة تأثير التحميل عند النقر على أزرار التحميل
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.download-btn').forEach(button => {
                 button.addEventListener('click', function(e) {
+                    // إذا كان الزر يحتوي على رابط، لا نمنع السلوك الافتراضي
                     if (this.getAttribute('href') === '#') {
                         e.preventDefault();
                     }
                     
                     const originalText = this.innerHTML;
                     
+                    // تأثير التحميل
                     this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحميل...';
                     this.classList.add('loading');
                     
+                    // محاكاة عملية التحميل
                     setTimeout(() => {
                         this.innerHTML = originalText;
                         this.classList.remove('loading');
                         
+                        // إذا كان الزر يحتوي على رابط حقيقي، لا نعرض الرسالة
                         if (this.getAttribute('href') === '#') {
                             showToast('بدأ تحميل الملف بنجاح!');
                         }
